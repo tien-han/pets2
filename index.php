@@ -1,6 +1,6 @@
 <?php
 /**
- * 328/pets/index.php
+ * 328/pets2/index.php
  * Simple MVC using the Fat-Free framework.
  * @author Tien Han
  * @version 1.0
@@ -21,6 +21,12 @@
         //Render a view page
         $view = new Template();
         echo $view->render('views/home.html');
+    });
+
+    //Order Page
+    $f3-> route('GET /order', function() {
+        $view = new Template();
+        echo $view->render('views/pet-order.html');
     });
 
     //Run Fat-Free
