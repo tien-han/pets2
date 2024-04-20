@@ -1,0 +1,12 @@
+{
+  "name": "tienthan/328/pets",
+  "authors": [
+    {
+      "name": "Tien Han",
+      "email": "Han.Tien@student.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
