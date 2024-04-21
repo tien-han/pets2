@@ -26,13 +26,13 @@
         <form action="#" method="post">
             <!--Type of Pet-->
             <section>
-                <label for="pet">What kind of pet would you like to order?</label>
-                <input name="pet" id="pet" type="text">
+                <label for="pet" class="form-label mt-3">What kind of pet would you like to order?</label>
+                <input class="form-control" name="pet" id="pet" type="text">
             </section>
             <!--Color of Pet-->
             <section>
-                <label for="color">Select a color</label>
-                <select name="color" id="color">
+                <label for="color" class="form-label mt-3">Select a color</label>
+                <select class="form-control" name="color" id="color">
                     <option hidden disabled selected value>  </option>
                     <option value="brown">Brown</option>
                     <option value="white">White</option>
@@ -40,7 +40,7 @@
                 </select>
             </section>
             <!--Submit Button-->
-            <button>Place Order</button>
+            <button class="btn btn-primary mt-3 text-center">Place Order</button>
         </form>
     </div>
 
