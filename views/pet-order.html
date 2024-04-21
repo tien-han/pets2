@@ -9,17 +9,22 @@
 </head>
 <body>
     <h1>Order a Pet</h1>
+    <!--Pet Order Form-->
     <form action="#" method="post">
+        <!--Type of Pet-->
         <label for="pet">What kind of pet would you like to order?</label>
         <input name="pet" id="pet" type="text">
         <br>
+        <!--Color of Pet-->
         <label for="color">Select a color</label>
         <select name="color" id="color">
+            <option hidden disabled selected value>  </option>
             <option value="brown">Brown</option>
             <option value="white">White</option>
             <option value="black">Black</option>
         </select>
         <br>
+        <!--Submit Button-->
         <button>Place Order</button>
     </form>
 

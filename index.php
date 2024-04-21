@@ -57,6 +57,11 @@
         echo $view->render('views/pet-order.html');
     });
 
+    $f3->route('GET /summary', function() {
+        $view = new Template();
+        echo $view->render('views/order-summary.html');
+    });
+
     //Run Fat-Free
     $f3->run();
 ?>
