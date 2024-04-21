@@ -1,3 +1,15 @@
+/*
+    @file 328/pets2/styles/styles.css
+    @description: Styles for the pets2 assignment.
+    @author: Tien Han
+    @version:
+*/
+
+/* -------------GLOBAL STYLES------------- */
+a {
+    font-weight: bold;
+}
+
 h1 {
     color: #92c744;
 }
@@ -5,9 +17,5 @@ h1 {
 img {
     width: 300px;
     height: auto;
-    border-radius: 50%;
-}
-
-a {
-   background-color: cornflowerblue;
+    border-radius: 5%;
 }

@@ -1,7 +1,7 @@
 <?php
 /**
- * 328/pets2/index.php
- * Simple MVC using the Fat-Free framework.
+ * @file 328/pets2/index.php
+ * @description Simple MVC using the Fat-Free framework. This page holds the controller for the Pets2 assignment.
  * @author Tien Han
  * @version 1.0
  */
@@ -35,14 +35,14 @@
 
             //Validate the form data
             if (empty($pet)) {
-                //Data is invalid
+                //Data is invalid for pet
                 echo "Please supply a pet type";
             } else {
                 if (empty($color)) {
-                    //data is invalid
+                    //Data is invalid for color
                     echo "Please supply a pet color";
                 } else {
-                    //Data is valid
+                    //Data is valid for pet and color
                     $f3->set('SESSION.pet', $pet);
                     //Add the color to the session
                     $f3->set('SESSION.color', $color);
@@ -57,6 +57,7 @@
         echo $view->render('views/pet-order.html');
     });
 
+    //Summary Page
     $f3->route('GET /summary', function() {
         $view = new Template();
         echo $view->render('views/order-summary.html');
