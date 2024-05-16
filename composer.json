@@ -1,9 +1,13 @@
 {
-  "name": "tienthan/328/pets",
+  "name": "tienthan/328/pets3",
   "authors": [
     {
       "name": "Tien Han",
       "email": "Han.Tien@student.greenriver.edu"
+    },
+    {
+      "name": "Dale Kanikkeberg",
+      "email": "Kanikkeberg.Dale@student.greenriver.edu"
     }
   ],
   "require": {
