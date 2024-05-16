@@ -42,10 +42,19 @@
                     //Data is invalid for color
                     echo "Please supply a pet color";
                 } else {
-                    //Data is valid for pet and color
-                    $f3->set('SESSION.pet', $pet);
-                    //Add the color to the session
-                    $f3->set('SESSION.color', $color);
+                    ////Data is valid for pet and color
+                    //$f3->set('SESSION.pet', $pet);
+                    ////Add the color to the session
+                    //$f3->set('SESSION.color', $color);
+
+                    $type = $_POST['pet_type'];
+                    $petType = "";
+                    if ($type == "robotic") {
+                        $petType = new RoboticPet($pet, $color);
+                    } else {
+                        $petType = new StuffedPet($pet, $color);
+                    }
+                    $this->_f3->set('SESSION.petType', $petType);
 
                     //Redirect to the summary route
                     $f3->reroute("summary");
