@@ -74,7 +74,20 @@
     });
 
     //Stuffed order page
-    $f3->route('GET /stuffed-order', function() {
+    $f3->route('GET|POST /stuffed-order', function($f3) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Get the submitted form data
+            $size = $_POST['size'];
+            $material = $_POST['material'];
+            $stuffing = $_POST['stuffing'];
+            $f3->set('SESSION.size', $size);
+            $f3->set('SESSION.material', $material);
+            $f3->set('SESSION.stuffing', $stuffing);
+            $view = new Template();
+            $f3->reroute('summary');
+
+        }
+
         $view = new Template();
         echo $view->render('views/stuffed-order.html');
     });
