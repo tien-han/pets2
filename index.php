@@ -14,6 +14,9 @@
 
     //Require the autoload file
     require_once('vendor/autoload.php');
+    require_once('classes/pet.php');
+    require_once('classes/robotic-pet.php');
+    require_once('classes/stuffed-pet.php');
 
     //Instantiate the F3 Base class (Fat-Free)
     $f3 = Base::instance();
@@ -48,22 +51,38 @@
                     //$f3->set('SESSION.color', $color);
 
                     $type = $_POST['pet_type'];
-                    $petType = "";
+
                     if ($type == "robotic") {
                         $petType = new RoboticPet($pet, $color);
+                        $f3->set('SESSION.petType', $petType);
+
+                        //Redirect to the summary route
+                        $f3->reroute("robotic-order");
                     } else {
                         $petType = new StuffedPet($pet, $color);
-                    }
-                    $this->_f3->set('SESSION.petType', $petType);
+                        $f3->set('SESSION.petType', $petType);
 
-                    //Redirect to the summary route
-                    $f3->reroute("summary");
+                        //Redirect to the summary route
+                        $f3->reroute("stuffed-order");
+                    }
                 }
             }
         }
 
         $view = new Template();
         echo $view->render('views/pet-order.html');
+    });
+
+    //Stuffed order page
+    $f3->route('GET /stuffed-order', function() {
+        $view = new Template();
+        echo $view->render('views/stuffed-order.html');
+    });
+
+    //Robotic order page
+    $f3->route('GET /robotic-order', function() {
+        $view = new Template();
+        echo $view->render('views/robotic-order.html');
     });
 
     //Summary Page

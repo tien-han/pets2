@@ -1,0 +1,65 @@
+<!--
+    @file: 328/pets2/views/pet-order.html
+    @description: Pet ordering form page.
+    @author: Tien Han, Dale Kanikkeberg
+    @version: 1.0
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--  Bootstrap CDN  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--  Custom Stylesheet  -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Order a Pet Form</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Order a Pet</h1>
+    <!--Pet Order Form-->
+    <form action="#" method="post">
+        <!--Size of Pet-->
+        <section>
+            <label for="size" class="form-label mt-3">Select a Size</label>
+            <select class="form-select" name="size" id="size">
+                <option hidden disabled selected value>  </option>
+                <option value="big">Big</option>
+                <option value="medium">Medium</option>
+                <option value="small">Small</option>
+            </select>
+        </section>
+        <!--Material of Pet-->
+        <section>
+            <label for="material" class="form-label mt-3">Select a Material</label>
+            <select class="form-select" name="material" id="material">
+                <option hidden disabled selected value>  </option>
+                <option value="fleece">Fleece</option>
+                <option value="cotton">Cotton</option>
+                <option value="polyester">Polyester</option>
+            </select>
+        </section>
+        <!--Color of Pet-->
+        <section>
+            <label for="stuffing" class="form-label mt-3">Select a Stuffing</label>
+            <select class="form-select" name="stuffing" id="stuffing">
+                <option hidden disabled selected value>  </option>
+                <option value="Wool">Wool</option>
+                <option value="cotton">Cotton</option>
+                <option value="polyester">Polyester</option>
+            </select>
+        </section>
+        <!--Submit Button-->
+        <button class="btn btn-primary mt-3 text-center">Place Order</button>
+    </form>
+</div>
+
+<!--  Bootstrap CDN  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
