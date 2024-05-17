@@ -83,9 +83,7 @@
             $f3->set('SESSION.size', $size);
             $f3->set('SESSION.material', $material);
             $f3->set('SESSION.stuffing', $stuffing);
-            $view = new Template();
             $f3->reroute('summary');
-
         }
 
         $view = new Template();
@@ -93,7 +91,14 @@
     });
 
     //Robotic order page
-    $f3->route('GET /robotic-order', function() {
+    $f3->route('GET|POST /robotic-order', function($f3) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Get the submitted form data
+            $accessory = $_POST['accessory'];
+            $f3->set('SESSION.accessory', $accessory);
+            $f3->reroute('summary');
+        }
+
         $view = new Template();
         echo $view->render('views/robotic-order.html');
     });
