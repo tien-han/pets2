@@ -45,24 +45,26 @@
                     //Data is invalid for color
                     echo "Please supply a pet color";
                 } else {
-                    ////Data is valid for pet and color
-                    //$f3->set('SESSION.pet', $pet);
-                    ////Add the color to the session
-                    //$f3->set('SESSION.color', $color);
-
                     $type = $_POST['pet_type'];
 
                     if ($type == "robotic") {
-                        $petType = new RoboticPet($pet, $color);
-                        $f3->set('SESSION.petType', $petType);
+                        //Robotic Pets
+                        $roboticPet = new RoboticPet($pet, $color);
+                        $f3->set('SESSION.petType', $roboticPet);
 
-                        //Redirect to the summary route
+                        //Redirect to the robotic pet form
                         $f3->reroute("robotic-order");
                     } else {
-                        $petType = new StuffedPet($pet, $color);
-                        $f3->set('SESSION.petType', $petType);
+                        //Stuffed Pests
+                        $stuffedPet = new StuffedPet($pet, $color);
+                        $f3->set('SESSION.petType', $stuffedPet);
 
-                        //Redirect to the summary route
+                        //$pet = $f3->get('SESSION.petType');
+                        //echo "<pre>";
+                        //var_dump($pet);
+                        //echo "</pre>\n";
+
+                        //Redirect to the stuffed pet form
                         $f3->reroute("stuffed-order");
                     }
                 }
@@ -75,6 +77,11 @@
 
     //Stuffed order page
     $f3->route('GET|POST /stuffed-order', function($f3) {
+        $pet = $f3->get('SESSION.petType');
+        echo "<pre>";
+        var_dump($pet);
+        echo "</pre>\n";
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Get the submitted form data
             $size = $_POST['size'];
