@@ -1,10 +1,10 @@
 <?php
     class RoboticPet extends Pet {
-        private array $_accessories;
+        private string $_accessories;
 
         function __construct(string $animal="unknown animal",
                              string $color="unknown color",
-                             array $accessories=['no accessories'])
+                             string $accessories="no accessories")
         {
             //Pass name and color to the Pet constructor
             parent::__construct($animal, $color);
@@ -13,12 +13,12 @@
             $this->_accessories = $accessories;
         }
 
-        public function getAccessories(): array
+        public function getAccessories(): string
         {
             return $this->_accessories;
         }
 
-        public function setAccessories(array $accessories): void
+        public function setAccessories(string $accessories): void
         {
             $this->_accessories = $accessories;
         }

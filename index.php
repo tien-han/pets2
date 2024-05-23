@@ -89,7 +89,8 @@
     //Robotic order page
     $f3->route('GET|POST /robotic-order', function($f3) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $f3->get('SESSION.pet')->setAccessories($_POST['accessories']);
+            $accessories = implode(", ", $_POST['accessories']);
+            $f3->get('SESSION.pet')->setAccessories($accessories);
             $f3->reroute('summary');
         }
 
@@ -98,15 +99,9 @@
     });
 
     //Summary Page
-    $f3->route('GET /summary', function($f3) {
-        $pet = $f3->get('SESSION.pet');
-        echo "<pre>";
-        var_dump($pet);
-        echo "</pre>\n";
-
+    $f3->route('GET /summary', function() {
         $view = new Template();
         echo $view->render('views/order-summary.html');
-        //session_destroy();
     });
 
 

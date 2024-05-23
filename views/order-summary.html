@@ -20,13 +20,22 @@
     <title>Confirmation Page</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Results Page</h1>
-        <p class="text-center">
+    <div class="container text-center">
+        <h1>Results Page</h1>
+        <p>
             <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/heart.svg" width="10" height="10">
             Thank you for ordering a {{ @SESSION.pet->getColor() }} {{ @SESSION.pet->getAnimal() }}!
             <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/heart.svg" width="10" height="10">
         </p>
+        <div>
+            <check if="{{ get_Class(@SESSION.pet) == 'RoboticPet'}}">
+                Your robotic pet has the following selected accessories:
+                {{ @SESSION.pet->getAccessories() }}.
+            </check>
+            <check if="{{ get_Class(@SESSION.pet) == 'StuffedPet'}}">
+                Your {{ @SESSION.pet->getSize() }} stuffed pet is made out of {{ @SESSION.pet->getMaterial() }} and stuffed with {{ @SESSION.pet->getStuffingType() }}.
+            </check>
+        </div>
     </div>
 
     <!--  Bootstrap CDN  -->
