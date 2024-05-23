@@ -24,7 +24,7 @@
         <h1 class="text-center">Results Page</h1>
         <p class="text-center">
             <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/heart.svg" width="10" height="10">
-            Thank you for ordering a {{ @SESSION.color }} {{ @SESSION.pet }}!
+            Thank you for ordering a {{ @SESSION.pet->getColor() }} {{ @SESSION.pet->getAnimal() }}!
             <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/heart.svg" width="10" height="10">
         </p>
     </div>

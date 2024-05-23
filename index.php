@@ -6,7 +6,9 @@
  * @version 1.0
  */
 
-    session_start();
+    //Fat Free gives us session_start()
+    //If we use it, we have to use it after autoload/classes
+    //session_start();
 
     //Turn on error reporting
     ini_set('display_errors', 1);
@@ -50,19 +52,14 @@
                     if ($type == "robotic") {
                         //Robotic Pets
                         $roboticPet = new RoboticPet($pet, $color);
-                        $f3->set('SESSION.petType', $roboticPet);
+                        $f3->set('SESSION.pet', $roboticPet);
 
                         //Redirect to the robotic pet form
                         $f3->reroute("robotic-order");
                     } else {
                         //Stuffed Pests
                         $stuffedPet = new StuffedPet($pet, $color);
-                        $f3->set('SESSION.petType', $stuffedPet);
-
-                        //$pet = $f3->get('SESSION.petType');
-                        //echo "<pre>";
-                        //var_dump($pet);
-                        //echo "</pre>\n";
+                        $f3->set('SESSION.pet', $stuffedPet);
 
                         //Redirect to the stuffed pet form
                         $f3->reroute("stuffed-order");
@@ -77,19 +74,14 @@
 
     //Stuffed order page
     $f3->route('GET|POST /stuffed-order', function($f3) {
-        $pet = $f3->get('SESSION.petType');
-        echo "<pre>";
-        var_dump($pet);
-        echo "</pre>\n";
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Get the submitted form data
             $size = $_POST['size'];
             $material = $_POST['material'];
             $stuffing = $_POST['stuffing'];
-            $f3->set('SESSION.size', $size);
-            $f3->set('SESSION.material', $material);
-            $f3->set('SESSION.stuffing', $stuffing);
+            $f3->get('SESSION.pet')->setSize($size);
+            $f3->get('SESSION.pet')->setMaterial($material);
+            $f3->get('SESSION.pet')->setStuffingType($stuffing);
             $f3->reroute('summary');
         }
 
@@ -111,10 +103,17 @@
     });
 
     //Summary Page
-    $f3->route('GET /summary', function() {
+    $f3->route('GET /summary', function($f3) {
+        $pet = $f3->get('SESSION.pet');
+        echo "<pre>";
+        var_dump($pet);
+        echo "</pre>\n";
+
         $view = new Template();
         echo $view->render('views/order-summary.html');
+        //session_destroy();
     });
+
 
     //Run Fat-Free
     $f3->run();
