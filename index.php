@@ -75,13 +75,10 @@
     //Stuffed order page
     $f3->route('GET|POST /stuffed-order', function($f3) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Get the submitted form data
-            $size = $_POST['size'];
-            $material = $_POST['material'];
-            $stuffing = $_POST['stuffing'];
-            $f3->get('SESSION.pet')->setSize($size);
-            $f3->get('SESSION.pet')->setMaterial($material);
-            $f3->get('SESSION.pet')->setStuffingType($stuffing);
+            //Get and save the submitted form data
+            $f3->get('SESSION.pet')->setSize($_POST['size']);
+            $f3->get('SESSION.pet')->setMaterial($_POST['material']);
+            $f3->get('SESSION.pet')->setStuffingType($_POST['stuffing']);
             $f3->reroute('summary');
         }
 
@@ -92,9 +89,7 @@
     //Robotic order page
     $f3->route('GET|POST /robotic-order', function($f3) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Get the submitted form data
-            $accessory = $_POST['accessory'];
-            $f3->set('SESSION.accessory', $accessory);
+            $f3->get('SESSION.pet')->setAccessories($_POST['accessories']);
             $f3->reroute('summary');
         }
 

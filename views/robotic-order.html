@@ -23,18 +23,13 @@
 <div class="container">
     <h1 class="text-center">Order a Pet</h1>
     <!--Pet Order Form-->
+    <h4>Select your pet accessories:</h4>
     <form action="#" method="post">
         <!--Accessories for Pet-->
-        <section>
-            <label for="accessory" class="form-label mt-3">Select your accessory</label>
-            <select class="form-select" name="accessory" id="accessory">
-                <option hidden disabled selected value>  </option>
-                <option value="battery">Extra Battery Packs</option>
-                <option value="charging">Charging Dock/Station</option>
-                <option value="voice">Voice Module</option>
-                <option value="camera">Camera Attachment</option>
-            </select>
-        </section>
+        <label><input type="checkbox" name="accessories[]" value="battery"> Extra Battery Packs</label><br>
+        <label><input type="checkbox" name="accessories[]" value="charging"> Charging Dock/Station</label><br>
+        <label><input type="checkbox" name="accessories[]" value="voice"> Voice Module</label><br>
+        <label><input type="checkbox" name="accessories[]" value="camera"> Camera Attachment</label><br>
         <!--Submit Button-->
         <button class="btn btn-primary mt-3 text-center">Place Order</button>
     </form>
